@@ -1,0 +1,36 @@
+doctype html
+html(lang='en',ng-app='upload')
+  head
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title ng-evaporate
+
+    link(href='//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/css/style.css', rel='stylesheet')
+
+  body
+    .container
+        .row(ng-controller='UploadCtrl')
+            .col-lg-12
+                h1 ng-evaporate demo
+                input#files(type='file', multiple='multiple', ng-model='files')
+
+                ui
+                    li(ng-repeat='file in files', ng-show='file.completed')
+                        a(ng-href='{{file.url}}', target='_blank') {{file.name}} completed
+                .progress(ng-repeat='file in files', ng-show='!file.completed')
+                    .progress-bar(role='progressbar', aria-valuenow='{{file.progress}}', aria-valuemin='0', aria-valuemax='100', style='width: {{file.progress}}%;')
+                        span.sr-only {{file.progress}}% Complete
+                    span.progress-type {{file.name}} {{file.timeLeft}}s left
+                    span.progress-completed {{file.progress}}%
+
+
+
+    script.
+        var aws_access_key = !{JSON.stringify(aws_access_key)};
+        var aws_bucket     = !{JSON.stringify(aws_bucket)};
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+    script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js')
+    script(src='/js/evap.js')
+    script(src='/js/app.js')

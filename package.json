@@ -1,0 +1,15 @@
+{
+  "name": "ng-evaporate",
+  "version": "0.0.1",
+  "description": "a demo using angular, nodejs, evaporatjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Qualls.James@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "express": "~4.4.3",
+    "jade": "~1.3.1"
+  }
+}
